@@ -2515,6 +2515,8 @@
     <Content Include="Views\Layout\_LayoutSanPham.cshtml" />
     <Content Include="Views\Layout\_Layout.cshtml" />
     <Content Include="Views\Home\TrangChu.cshtml" />
+    <Content Include="Views\LoginUser\DangKy.cshtml" />
+    <Content Include="Views\LoginUser\Dangnhap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2522,7 +2524,6 @@
     <Folder Include="Views\AdminSanPham\" />
     <Folder Include="Views\GioHang\" />
     <Folder Include="Views\LoginAdmin\" />
-    <Folder Include="Views\LoginUser\" />
     <Folder Include="Views\NongSanZeno\" />
   </ItemGroup>
   <ItemGroup>
