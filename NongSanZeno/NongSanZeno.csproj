@@ -2514,13 +2514,13 @@
     <Content Include="Views\Layout\_LayoutChiTiet.cshtml" />
     <Content Include="Views\Layout\_LayoutSanPham.cshtml" />
     <Content Include="Views\Layout\_Layout.cshtml" />
+    <Content Include="Views\Home\TrangChu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Cart\detail\" />
     <Folder Include="Views\AdminSanPham\" />
     <Folder Include="Views\GioHang\" />
-    <Folder Include="Views\Home\" />
     <Folder Include="Views\LoginAdmin\" />
     <Folder Include="Views\LoginUser\" />
     <Folder Include="Views\NongSanZeno\" />
