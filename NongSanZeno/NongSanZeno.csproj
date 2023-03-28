@@ -2520,6 +2520,8 @@
     <Content Include="Views\NongSanZeno\SPTheoNhom.cshtml" />
     <Content Include="Views\NongSanZeno\LoaiSP.cshtml" />
     <Content Include="Views\NongSanZeno\SPTheoLoai.cshtml" />
+    <Content Include="Views\Home\GioiThieu.cshtml" />
+    <Content Include="Views\Home\LienHe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
