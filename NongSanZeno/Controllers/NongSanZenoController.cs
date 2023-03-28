@@ -11,11 +11,72 @@ namespace NongSanZeno.Controllers
 {
     public class NongSanZenoController : Controller
     {
-        public ActionResult Index()
+        dbNongSanZenoDataContext data = new dbNongSanZenoDataContext();
+        // GET: NongSanZeno
+        private List<tbSanPham> Laysanpham(int count)
         {
-            return View();
+            return data.tbSanPhams.OrderByDescending(a => a.NgayCapNhat).Take(count).ToList();
+        }
+        public ActionResult SanPham(int? page)
+        {
+            //Tao bien quy dinh so san pham tren moi trang
+            int pageSize = 15;
+            //tao bien so trang
+            int pageNum = (page ?? 1);
+
+            //Lay top san pham moi nhat
+            var sanphammoi = Laysanpham(100);
+            string s = Request.QueryString["s"];
+            if (!string.IsNullOrEmpty(s)) sanphammoi = data.tbSanPhams.OrderByDescending(a => a.NgayCapNhat).Take(100).Where(w => w.TenSP.Contains(s)).ToList();
+            return View(sanphammoi.ToPagedList(pageNum, pageSize));
         }
 
-        
+        //==================== tat ca san pham ====================
+        public ActionResult TatCaSanPham(int? page)
+        {
+            var allSP = from sp in data.tbSanPhams select sp;
+
+            int pagesize = 8;
+            int pageNum = (page ?? 1);
+            return View(allSP.ToPagedList(pageNum, pagesize));
+        }
+
+        //==================== san pham theo nhom ====================
+        public ActionResult NhomSP()
+        {
+            var banhkem = from cd in data.tbNhoms select cd;
+            return PartialView(banhkem);
+        }
+
+        public ActionResult SPTheoNhom(int? id, int? page)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            int pagesize = 15;
+            int pageNum = (page ?? 1);
+            var SPbk = from sp in data.tbSanPhams where sp.MaNhom == id select sp;
+            return View(SPbk.ToPagedList(pageNum, pagesize));
+        }
+
+        //==================== san pham theo loai ====================
+        public ActionResult LoaiSP()
+        {
+            var loaisp = from cd in data.tbLoaiSanPhams select cd;
+            return PartialView(loaisp);
+        }
+
+        public ActionResult SPTheoLoai(int? id, int? page)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            int pagesize = 15;
+            int pageNum = (page ?? 1);
+            var SPLoai = from sp in data.tbSanPhams where sp.MaLoaiSP == id select sp;
+            return View(SPLoai.ToPagedList(pageNum, pagesize));
+        }
     }
 }
