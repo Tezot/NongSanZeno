@@ -16,6 +16,6 @@ namespace NongSanZeno.Controllers
 {
     public class AdminSanPhamController : Controller
     {
-       /////////// 
+       ///////////test 
     }
 }
