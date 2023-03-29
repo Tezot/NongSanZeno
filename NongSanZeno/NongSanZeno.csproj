@@ -2522,14 +2522,15 @@
     <Content Include="Views\NongSanZeno\SPTheoLoai.cshtml" />
     <Content Include="Views\Home\GioiThieu.cshtml" />
     <Content Include="Views\Home\LienHe.cshtml" />
+    <Content Include="Views\LoginUser\DangKy.cshtml" />
+    <Content Include="Views\LoginUser\Dangnhap.cshtml" />
+    <Content Include="Views\AdminSanPham\ChiTiet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Cart\detail\" />
-    <Folder Include="Views\AdminSanPham\" />
     <Folder Include="Views\GioHang\" />
     <Folder Include="Views\LoginAdmin\" />
-    <Folder Include="Views\LoginUser\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
