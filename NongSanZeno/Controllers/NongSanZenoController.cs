@@ -80,6 +80,7 @@ namespace NongSanZeno.Controllers
         }
         public ActionResult ChiTiet(int? id)
         {
+            //
             if (id == null)
             {
                 return HttpNotFound();
