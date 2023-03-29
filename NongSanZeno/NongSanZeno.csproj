@@ -2524,14 +2524,18 @@
     <Content Include="Views\Home\LienHe.cshtml" />
     <Content Include="Views\LoginUser\DangKy.cshtml" />
     <Content Include="Views\LoginUser\Dangnhap.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\AdminSanPham\ChiTiet.cshtml" />
+    <Content Include="Views\LoginAdmin\Index.cshtml" />
+=======
     <Content Include="Views\NongSanZeno\ChiTiet.cshtml" />
+>>>>>>> e249fa660b41d97981b767388a7d2b11e67d1633
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Cart\detail\" />
     <Folder Include="Views\AdminSanPham\" />
     <Folder Include="Views\GioHang\" />
-    <Folder Include="Views\LoginAdmin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
