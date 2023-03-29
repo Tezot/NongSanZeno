@@ -2531,12 +2531,15 @@
     <Content Include="Views\GioHang\GiohangPartial.cshtml" />
     <Content Include="Views\GioHang\GiohangPartial1.cshtml" />
     <Content Include="Views\GioHang\XacNhanDonHang.cshtml" />
+    <Content Include="Views\LoginAdmin\Index.cshtml" />
+    <Content Include="Views\LoginAdmin\LoginAdmin.cshtml" />
+    <Content Include="Views\AdminSanPham\Chitietsanpham.cshtml" />
+    <Content Include="Views\AdminSanPham\DSsanpham.cshtml" />
+    <Content Include="Views\AdminSanPham\Themsanpham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Cart\detail\" />
-    <Folder Include="Views\AdminSanPham\" />
-    <Folder Include="Views\LoginAdmin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
