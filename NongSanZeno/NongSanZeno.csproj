@@ -2537,6 +2537,7 @@
     <Content Include="Views\AdminSanPham\DSsanpham.cshtml" />
     <Content Include="Views\AdminSanPham\Themsanpham.cshtml" />
     <Content Include="Views\AdminSanPham\Xoasanpham.cshtml" />
+    <Content Include="Views\AdminSanPham\Suasanpham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
