@@ -105,5 +105,46 @@ namespace NongSanZeno.Controllers
             data.SubmitChanges();
             return RedirectToAction("DSsanpham", "AdminSanPham");
         }
+
+        [HttpGet]
+        public ActionResult Xoasanpham(int id)
+        {
+            if (Session["TKadmin"] == null)
+            {
+                return RedirectToAction("SanPham", "NongSanZeno");
+            }
+            else
+            {
+                tbSanPham sp = data.tbSanPhams.SingleOrDefault(n => n.MaSP == id);
+                ViewBag.MaSP = sp.MaSP;
+                if (sp == null)
+                {
+                    Response.StatusCode = 404;
+                    return null;
+                }
+                return View(sp);
+            }
+        }
+        [HttpPost, ActionName("Xoasanpham")]
+        public ActionResult XacNhanXoasanpham(int id)
+        {
+            if (Session["TKadmin"] == null)
+            {
+                return RedirectToAction("SanPham", "NongSanZeno");
+            }
+            else
+            {
+                tbSanPham sp = data.tbSanPhams.SingleOrDefault(n => n.MaSP == id);
+                ViewBag.MaSP = sp.MaSP;
+                if (sp == null)
+                {
+                    Response.StatusCode = 404;
+                    return null;
+                }
+                data.tbSanPhams.DeleteOnSubmit(sp);
+                data.SubmitChanges();
+                return RedirectToAction("DSsanpham");
+            }
+        }
     }
 }
