@@ -16,15 +16,6 @@ namespace NongSanZeno.Controllers
 {
     public class AdminSanPhamController : Controller
     {
-        public ActionResult ChiTiet(int? id)
-        {
-            if (id == null)
-            {
-                return HttpNotFound();
-            }
-            var chitietSP = (from s in data.tbSanPhams where s.MaSP == id select s).Single();
-            ViewBag.Description = chitietSP.MoTa;
-            return View(chitietSP);
-        }
+        
     }
 }
