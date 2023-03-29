@@ -146,5 +146,59 @@ namespace NongSanZeno.Controllers
                 return RedirectToAction("DSsanpham");
             }
         }
+
+        [HttpGet]
+        public ActionResult Suasanpham(int id)
+        {
+            if (Session["TKadmin"] == null)
+            {
+                return RedirectToAction("SanPham", "NongSanZeno");
+            }
+            tbSanPham sp = data.tbSanPhams.SingleOrDefault(n => n.MaSP == id);
+            ViewBag.Loai = new SelectList(data.tbLoaiSanPhams.ToList().OrderBy(n => n.MaLoaiSP), "MaLoaiSP", "TenLoaiSP", sp.MaLoaiSP);
+            ViewBag.Nhom = new SelectList(data.tbNhoms.ToList().OrderBy(n => n.TenNhom), "MaNhom", "TenNhom", sp.MaNhom);
+            ViewBag.Dvt = new SelectList(data.tbDonViTinhs.ToList().OrderBy(n => n.MaDVT), "MaDVT", "TenDVT", sp.MaDVT);
+
+            if (sp == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(sp);
+        }
+
+        [HttpPost, ActionName("Suasanpham")]
+        public ActionResult XacNhanSuasanpham(FormCollection collection, int id, HttpPostedFileBase fileUpload)
+        {
+            var img = "";
+            if (Session["TKadmin"] == null)
+            {
+                return RedirectToAction("SanPham", "NongSanZeno");
+            }
+            if (fileUpload != null)
+            {
+                img = Path.GetFileName(fileUpload.FileName);
+                var path = Path.Combine(Server.MapPath("~/images/sanpham"), img);
+                if (!System.IO.File.Exists(path))//Sản Phẩm Chưa Tồn Tại
+                {
+                    fileUpload.SaveAs(path);
+                }
+            }
+            else
+            {
+                img = collection["Anh"];
+            }
+            tbSanPham sp = data.tbSanPhams.SingleOrDefault(n => n.MaSP == id);
+            sp.AnhSP = img;
+            if (sp == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            UpdateModel(sp);
+            data.SubmitChanges();
+            return RedirectToAction("DSsanpham");
+
+        }
     }
 }
