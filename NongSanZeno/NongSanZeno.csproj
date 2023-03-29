@@ -2525,12 +2525,12 @@
     <Content Include="Views\LoginUser\DangKy.cshtml" />
     <Content Include="Views\LoginUser\Dangnhap.cshtml" />
     <Content Include="Views\AdminSanPham\ChiTiet.cshtml" />
+    <Content Include="Views\LoginAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Cart\detail\" />
     <Folder Include="Views\GioHang\" />
-    <Folder Include="Views\LoginAdmin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
