@@ -1,0 +1,83 @@
+﻿@model NongSanZeno.Models.tbSanPham
+
+@{
+    ViewBag.Title = "Themsanpham";
+    Layout = "~/Views/Layout/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/Admin/admin.css">
+
+<hr />
+<h2 style="text-align:center">THÊM SẢN PHẨM</h2>
+<hr />
+
+@using (Html.BeginForm("Themsanpham", "AdminSanPham", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label>Tên Sản Phẩm</label>
+            <div class="col-md-10">
+                <input required type="text" name="Ten" placeholder="Tên Sản Phẩm....." />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Giá</label>
+            <div class="col-md-10">
+                <input required type="text" name="Gia" placeholder="Giá....." />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Mô tả</label>
+            <div class="col-md-10">
+                <textarea required class="textarea" name="textarea" placeholder="Mô tả thông tin sản phẩm"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Hình</label>
+            <div class="col-md-10">
+                <input type="file" name="fileupload" required />
+                @ViewBag.ThongBaoAnh
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Ngày cập nhật</label>
+            <div class="col-md-10">
+                <input required type="date" name="Date" placeholder="Ngày cập nhật....." />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Loại sản phẩm</label>
+            <div class="col-md-10">
+                @Html.DropDownList("Loai")
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Nhóm sản phẩm</label>
+            <div class="col-md-10">
+                @Html.DropDownList("Nhom")
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Đơn vị tính</label>
+            <div class="col-md-10">
+                @Html.DropDownList("Dvt")
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div><input style="font-weight: bold" type="submit" value="Thêm Mới" class="btn btn-default" /></div>
+            <div class="btn btn-default" style="font-weight:bold; color:white"><a href="/AdminSanPham/DSsanpham">Quay Lại</a></div>
+        </div>
+
+    </div>
+}
